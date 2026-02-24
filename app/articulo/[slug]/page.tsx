@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
 
   if (!article) {
     return buildMetadata({
-      title: 'Artículo no encontrado',
+      title: 'Art\u00edculo no encontrado',
       path: `/articulo/${params.slug}`,
     });
   }
@@ -96,13 +96,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {article.gallery.length > 0 ? (
           <section className="space-y-4">
-            <h2 className="font-display text-3xl">Galería</h2>
+            <h2 className="font-display text-3xl">{'Galer\u00eda'}</h2>
             <div className="grid gap-4 md:grid-cols-2">
               {article.gallery.map((image, index) => (
                 <Image
                   key={`${image}-${index}`}
                   src={image}
-                  alt={`${article.title} galería ${index + 1}`}
+                  alt={`${article.title} galer\u00eda ${index + 1}`}
                   width={900}
                   height={620}
                   loading="lazy"

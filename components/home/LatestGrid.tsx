@@ -14,7 +14,7 @@ export function LatestGrid({ articles }: LatestGridProps) {
     <section className="space-y-5">
       <div>
         <p className="section-subtitle">Actualidad</p>
-        <h2 className="section-title mt-1">Artículos recientes</h2>
+        <h2 className="section-title mt-1">Articulos recientes</h2>
       </div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {articles.map((article) => (

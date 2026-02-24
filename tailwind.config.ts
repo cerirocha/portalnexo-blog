@@ -9,24 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: '#f8f7f3',
-        ink: '#11120f',
-        muted: '#6b6f64',
-        line: '#d5d5ca',
-        brand: '#0f4c81',
-        brandSoft: '#d8e6f2',
-        accent: '#9e7b45',
+        canvas: '#fbfaf6',
+        ink: '#1b1f1c',
+        muted: '#66706c',
+        line: '#dddace',
+        brand: '#2e6f67',
+        brandSoft: '#dbeee9',
+        accent: '#c6985a',
       },
       fontFamily: {
-        display: ['"Bodoni Moda"', 'serif'],
-        body: ['"Work Sans"', 'sans-serif'],
+        display: ['var(--font-display)', 'serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 12px 25px -14px rgba(11, 29, 45, 0.28)',
+        card: '0 18px 36px -24px rgba(28, 46, 40, 0.34)',
       },
       keyframes: {
         rise: {
-          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },

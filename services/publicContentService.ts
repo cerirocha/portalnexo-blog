@@ -167,13 +167,21 @@ export async function getRelatedArticles(article: Article, limit = 3) {
 
 export async function getHomepageSections(maxSections = 3) {
   const categories = await getCategories();
+  const sections: Array<{ category: Category; items: Article[] }> = [];
 
-  const sections = await Promise.all(
-    categories.slice(0, maxSections).map(async (category) => ({
-      category,
-      items: await getArticlesByCategory(category.slug, 4),
-    })),
-  );
+  for (const category of categories) {
+    const items = await getArticlesByCategory(category.slug, 4);
 
-  return sections.filter((section) => section.items.length > 0);
+    if (items.length === 0) {
+      continue;
+    }
+
+    sections.push({ category, items });
+
+    if (sections.length >= maxSections) {
+      break;
+    }
+  }
+
+  return sections;
 }

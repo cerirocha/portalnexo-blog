@@ -2,7 +2,7 @@
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-line/80 bg-[#f2efe6]">
+    <footer className="mt-24 border-t border-line/75 bg-[linear-gradient(180deg,#f3f1e8_0%,#ece8dd_100%)]">
       <div className="container-shell py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="space-y-4">
@@ -11,7 +11,9 @@ export function Footer() {
               Revista digital de finanzas personales, inversiones y economía. Diseñada para informar,
               posicionar en SEO y escalar audiencia de alto valor.
             </p>
-            <p className="text-xs uppercase tracking-[0.18em] text-muted">© {new Date().getFullYear()} Portal Nexo Media</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-muted">
+              © {new Date().getFullYear()} Portal Nexo Media
+            </p>
           </div>
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Secciones</p>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --radius: 1rem;
+  --radius: 1.1rem;
 }
 
 * {
@@ -17,6 +17,8 @@ body {
 
 body {
   font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.002em;
 }
 
 h1,
@@ -29,21 +31,21 @@ h6 {
 }
 
 ::selection {
-  background: #0f4c81;
-  color: #f8f7f3;
+  background: #2e6f67;
+  color: #fbfaf6;
 }
 
 @layer base {
   .container-shell {
-    @apply mx-auto w-full max-w-7xl px-5 md:px-8;
+    @apply mx-auto w-full max-w-[84rem] px-5 md:px-8;
   }
 
   .section-title {
-    @apply font-display text-3xl font-semibold leading-tight text-ink md:text-4xl;
+    @apply font-display text-[2rem] font-semibold leading-[1.15] text-ink md:text-[2.35rem];
   }
 
   .section-subtitle {
-    @apply text-sm uppercase tracking-[0.18em] text-muted;
+    @apply text-[11px] uppercase tracking-[0.24em] text-brand/80;
   }
 }
 
@@ -53,6 +55,6 @@ h6 {
   }
 
   .card-surface {
-    @apply rounded-[1.25rem] border border-line/80 bg-white/85 shadow-card backdrop-blur;
+    @apply rounded-[1.4rem] border border-line/80 bg-white/80 shadow-card backdrop-blur-md;
   }
 }

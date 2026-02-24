@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
 
   if (!category) {
     return buildMetadata({
-      title: 'Categoría no encontrada',
+      title: 'Categor\u00eda no encontrada',
       path: `/categoria/${params.slug}`,
     });
   }
@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="container-shell space-y-8 pb-16 pt-10">
       <header className="card-surface p-8">
-        <p className="section-subtitle">Categoría</p>
+        <p className="section-subtitle">{'Categor\u00eda'}</p>
         <h1 className="mt-2 text-balance font-display text-4xl leading-tight md:text-5xl">{category.name}</h1>
         <p className="mt-3 max-w-3xl text-muted">{category.description}</p>
       </header>

@@ -27,6 +27,33 @@ function assertAdmin(user: User | null) {
   }
 }
 
+async function revalidatePublicContent(
+  user: User | null,
+  payload?: { articleSlug?: string; categorySlug?: string },
+) {
+  if (!user) {
+    return;
+  }
+
+  try {
+    const token = await user.getIdToken();
+    const response = await fetch('/api/revalidate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload ?? {}),
+    });
+
+    if (!response.ok) {
+      console.warn('No se pudo revalidar cache publica');
+    }
+  } catch (error) {
+    console.warn('No se pudo revalidar cache publica', error);
+  }
+}
+
 export async function signInAdmin(email: string, password: string) {
   const credential = await signInWithEmailAndPassword(auth, email, password);
   assertAdmin(credential.user);
@@ -71,6 +98,8 @@ export async function createCategory(user: User | null, payload: Omit<Category, 
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
   });
+
+  await revalidatePublicContent(user, { categorySlug: parsed.slug });
 }
 
 export async function updateCategoryById(
@@ -85,11 +114,14 @@ export async function updateCategoryById(
     ...parsed,
     updatedAt: serverTimestamp(),
   });
+
+  await revalidatePublicContent(user, { categorySlug: parsed.slug });
 }
 
 export async function deleteCategoryById(user: User | null, categoryId: string) {
   assertAdmin(user);
   await deleteDoc(doc(db, 'categories', categoryId));
+  await revalidatePublicContent(user);
 }
 
 export async function getAdminArticles() {
@@ -136,6 +168,10 @@ export async function saveArticle(user: User | null, input: ArticleInput) {
 
   if (id) {
     await setDoc(doc(db, 'articles', id), finalData, { merge: true });
+    await revalidatePublicContent(user, {
+      articleSlug: parsed.slug,
+      categorySlug: parsed.categorySlug,
+    });
     return id;
   }
 
@@ -143,11 +179,16 @@ export async function saveArticle(user: User | null, input: ArticleInput) {
     ...finalData,
     createdAt: now,
   });
+  await revalidatePublicContent(user, {
+    articleSlug: parsed.slug,
+    categorySlug: parsed.categorySlug,
+  });
   return created.id;
 }
 
 export async function deleteArticleById(user: User | null, articleId: string) {
   assertAdmin(user);
   await deleteDoc(doc(db, 'articles', articleId));
+  await revalidatePublicContent(user);
 }
 

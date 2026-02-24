@@ -14,7 +14,7 @@ export function ArticleCard({ article, compact = false }: ArticleCardProps) {
     return (
       <Link
         href={`/articulo/${article.slug}`}
-        className="group flex items-start gap-3 rounded-xl border border-line/80 bg-white/80 p-3 transition hover:-translate-y-0.5 hover:shadow-card"
+        className="group flex items-start gap-3 rounded-xl border border-line/75 bg-white/85 p-3 transition hover:-translate-y-0.5 hover:shadow-card"
       >
         <Image
           src={article.featuredImage}
@@ -24,7 +24,7 @@ export function ArticleCard({ article, compact = false }: ArticleCardProps) {
           className="h-[72px] w-24 rounded-lg object-cover"
         />
         <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.15em] text-brand">{article.categoryName}</p>
+          <p className="text-xs uppercase tracking-[0.17em] text-brand/90">{article.categoryName}</p>
           <h3 className="line-clamp-2 text-sm font-semibold leading-tight text-ink group-hover:text-brand">
             {article.title}
           </h3>
@@ -45,14 +45,14 @@ export function ArticleCard({ article, compact = false }: ArticleCardProps) {
           className="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.04]"
         />
       </Link>
-      <div className="space-y-4 p-5">
-        <p className="text-xs uppercase tracking-[0.16em] text-brand">{article.categoryName}</p>
+      <div className="space-y-4 p-5 md:p-6">
+        <p className="text-xs uppercase tracking-[0.19em] text-brand/90">{article.categoryName}</p>
         <Link href={`/articulo/${article.slug}`}>
-          <h3 className="line-clamp-2 text-balance font-display text-2xl leading-tight transition group-hover:text-brand">
+          <h3 className="line-clamp-2 text-balance font-display text-[1.75rem] leading-[1.15] transition group-hover:text-brand">
             {article.title}
           </h3>
         </Link>
-        <p className="line-clamp-3 text-sm leading-relaxed text-muted">{article.metaDescription}</p>
+        <p className="line-clamp-3 text-[0.96rem] leading-relaxed text-muted">{article.metaDescription}</p>
         <div className="flex items-center justify-between text-xs text-muted">
           <span>{article.authorName}</span>
           <span>{formatArticleDate(article.publishedAt)}</span>
