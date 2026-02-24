@@ -1,0 +1,58 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 1rem;
+}
+
+* {
+  border-color: theme('colors.line');
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), serif;
+}
+
+::selection {
+  background: #0f4c81;
+  color: #f8f7f3;
+}
+
+@layer base {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-5 md:px-8;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold leading-tight text-ink md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply text-sm uppercase tracking-[0.18em] text-muted;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .card-surface {
+    @apply rounded-[1.25rem] border border-line/80 bg-white/85 shadow-card backdrop-blur;
+  }
+}

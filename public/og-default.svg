@@ -1,0 +1,13 @@
+﻿<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10283A"/>
+      <stop offset="1" stop-color="#305A7A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="24" fill="url(#bg)"/>
+  <circle cx="1050" cy="90" r="220" fill="#D8E6F2" fill-opacity="0.18"/>
+  <circle cx="130" cy="560" r="240" fill="#D1A45B" fill-opacity="0.18"/>
+  <text x="80" y="310" fill="#F8F7F3" font-family="serif" font-size="98" font-weight="700">Portal Nexo</text>
+  <text x="82" y="375" fill="#D8E6F2" font-family="sans-serif" font-size="34" letter-spacing="3">FINANZAS • INVERSIÓN • ECONOMÍA</text>
+</svg>
